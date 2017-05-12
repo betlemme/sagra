@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h2>{{menu.name}}</h2>
+    <ul class="list-group">
+      <!--
+      <li class="list-group-item" *ngFor="let categoria of menu.categorie">
+
+        <span class="badge">{{ categoria.id }}</span>
+        <button class="btn btn-success">{{categoria.nome}}</button>&nbsp;
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let dettaglio of categoria.dettaglioMenuList">
+            voce: {{dettaglio.nome}} &nbsp; {{dettaglio.prezzo}}
+          </li>
+        </ul>
+        <input #newDettaglioMenu>
+        <button type="button" class="btn btn-xs">XSmall</button>
+      </li>
+      -->
+      <app-categoria *ngFor="let categoria of menu.categorie" [categoria]="categoria">
+      </app-categoria>
+
+      <hr>
+      <input #newCategoria (keyup.enter)="addCategoria(newCategoria.value, menu.id)">
+      <button class="btn btn-primary"
+        (click)="addCategoria(newCategoria.value, menu.id)">crea categoria</button>
+    </ul>
+
+  </div>
+</div>

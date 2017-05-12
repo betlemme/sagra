@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h2>people:</h2>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let person of persons">
+        <span class="badge">{{ person.id }}</span>
+        <button class="btn btn-success">{{person.name}}</button>&nbsp;
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let adress of person.adresses">
+            indirizzo: {{adress.street}} &nbsp; {{adress.id}}
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+  </div>
+</div>

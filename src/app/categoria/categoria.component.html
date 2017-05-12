@@ -1,0 +1,19 @@
+<li class="list-group-item">
+<span class="badge">{{ categoria.id }}</span>
+<button class="btn btn-success">{{categoria.nome}}</button>&nbsp;
+<ul class="list-group">
+  <!--
+  <li class="list-group-item" *ngFor="let dettaglio of categoria.dettaglioMenuList">
+    voce: {{dettaglio.nome}} &nbsp; {{dettaglio.prezzo}}
+  </li>
+  -->
+  <app-dett-menu *ngFor="let dett_menu of categoria.dettaglioMenuList" [dett_menu]="dett_menu">
+  </app-dett-menu>
+</ul>
+<form>
+  <input #newDettaglioMenu type="text" [value]="this.newNome"><input #newPrezzo type="number">
+  <button type="button" class="btn btn-xs"
+    (click)="addDettaglioMenu(newDettaglioMenu.value, newPrezzo.value)">
+    aggiungi voce</button>
+</form>
+</li>
