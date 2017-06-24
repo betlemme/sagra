@@ -4,6 +4,7 @@ import {Injectable} from "@angular/core";
 import {Categoria} from "./categoria.model";
 import {Observable} from "rxjs";
 import {CategoriaJSON} from "./categoriaJSON.model";
+import {Dettaglio_menu} from "./dettaglio_menu.model";
 /**
  * Created by enrico on 01/05/2017.
  */
@@ -27,6 +28,30 @@ export class MenuService{
     let url = "http://localhost:8080/menu/" + id_menu + "/categoria";
 
     return this._http.post(url, body, options)
+      .map(this.extractData)
+      .catch(this.handleError);
+  }
+//ancora da implementare lato server
+  addDettaglioMenu(dett_menu: Dettaglio_menu){
+    let url = "http://localhost:8080/menu/" + dett_menu.id_menu +
+              "/categoria/" + dett_menu.id_categoria + "/dett_menu";
+
+    console.log(url);
+
+    let body = JSON.stringify(dett_menu);
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    return this._http.post(url, body, options)
+      .map(this.extractData)
+      .catch(this.handleError);
+
+  }
+
+  removeCategoria(id_menu: number, id: number){
+    let url = "http://localhost:8080/menu/" + id_menu + "/categoria/" + id;
+
+    return this._http.delete(url)
       .map(this.extractData)
       .catch(this.handleError);
   }

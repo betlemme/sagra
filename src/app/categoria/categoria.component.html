@@ -1,6 +1,9 @@
 <li class="list-group-item">
 <span class="badge">{{ categoria.id }}</span>
 <button class="btn btn-success">{{categoria.nome}}</button>&nbsp;
+  <button type="button" class="btn btn-danger"
+          [disabled]="this.categoria.dettaglioMenuList.length > 0"
+          (click)="removeCategoria()">rimuovi</button>&nbsp;
 <ul class="list-group">
   <!--
   <li class="list-group-item" *ngFor="let dettaglio of categoria.dettaglioMenuList">
@@ -11,9 +14,10 @@
   </app-dett-menu>
 </ul>
 <form>
-  <input #newDettaglioMenu type="text" [value]="this.newNome"><input #newPrezzo type="number">
+  voce {{newNome}}: <input #newDettaglioMenu type="text" [value]="this.newNome">  prezzo: <input #newPrezzo type="number">
   <button type="button" class="btn btn-xs"
     (click)="addDettaglioMenu(newDettaglioMenu.value, newPrezzo.value)">
     aggiungi voce</button>
 </form>
 </li>
+<!--[value]="this.newNome"-->

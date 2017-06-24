@@ -42,6 +42,11 @@ export class MenuComponent implements OnInit {
 
   }
 
+  onRemoved(){
+    this.menuService.getMenu()
+      .subscribe(res => this.menu = res);
+  }
+
   constructor(private menuService: MenuService) { }
 
   ngOnInit() {

@@ -16,7 +16,8 @@
         <button type="button" class="btn btn-xs">XSmall</button>
       </li>
       -->
-      <app-categoria *ngFor="let categoria of menu.categorie" [categoria]="categoria">
+      <app-categoria *ngFor="let categoria of menu.categorie"
+                     [categoria]="categoria" (onRemoved)="onRemoved($event)">
       </app-categoria>
 
       <hr>

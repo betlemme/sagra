@@ -1,10 +1,10 @@
 export class Dettaglio_menu{
-  private id: number;
-  private nome: string;
-  private nome_app: string;
-  private id_categoria: number;
-  private id_menu: number;
-  private prezzo: number;
+  public id: number;
+  public nome: string;
+  public nome_app: string;
+  public id_categoria: number;
+  public id_menu: number;
+  public prezzo: number;
 
   constructor(id: number,nome: string,nome_app: string, id_categoria: number,
               id_menu: number, prezzo: number){
